@@ -68,10 +68,10 @@ function install_php() {
             --enable-sysvshm \
             --enable-sysvmsg \
             --enable-intl \
-			--disable-rpath \
-			--disable-fileinfo \
-			--disable-ipv6 \
-			--disable-debug
+	    --disable-rpath \
+	    --disable-fileinfo \
+	    --disable-ipv6 \
+	    --disable-debug
     fi
 
     echo "Compiling PHP."
