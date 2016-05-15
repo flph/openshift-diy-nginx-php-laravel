@@ -68,7 +68,6 @@ function install_php() {
             --enable-sysvshm \
             --enable-sysvmsg \
             --enable-intl \
-            --enable-opcache \
 			--disable-rpath \
 			--disable-fileinfo \
 			--disable-ipv6 \
@@ -79,7 +78,7 @@ function install_php() {
     make install
 
     # Copy configuration file
-    local ini=${TEMPLATE_DIR}/php.ini.tmpl
+    local ini=${TEMPLATE_DIR}php.ini.tmpl
     if [[ -e  ${ini} ]]; then
         echo "Copy ini for ${1}."
         yes | cp ${ini} ${ROOT_DIR}etc/php5/php.ini
