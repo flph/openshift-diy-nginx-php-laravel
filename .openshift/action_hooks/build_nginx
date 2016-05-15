@@ -8,9 +8,10 @@ function install_nginx() {
     mkdir -p ${BUILD_DIR}
     mkdir -p ${ROOT_DIR}/etc/nginx
     pushd ${BUILD_DIR}
-
+    local ts=`date +%s`
+	
     # Get packages
-    download_and_unpack ${pkg_pcre} http://downloads.sourceforge.net/project/pcre/pcre/${PCRE_VERSION}/${pkg_pcre}?&use_mirror=netcologne
+    download_and_unpack ${pkg_pcre} http://downloads.sourceforge.net/project/pcre/pcre/${PCRE_VERSION}/${pkg_pcre}?ts=${ts}&use_mirror=netcologne
     download_and_unpack ${pkg_zlib} http://zlib.net/${pkg_zlib}
     download_and_unpack ${pkg} http://nginx.org/download/${pkg}
     pushd nginx-${NGINX_VERSION}
