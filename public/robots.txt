@@ -1,2 +1,3 @@
 User-agent: *
-Disallow:
+Disallow: 
+Sitemap: http://www.filipeandre.com/sitemap.xml

@@ -10,7 +10,7 @@ function install_nginx() {
     pushd ${BUILD_DIR}
 
     # Get packages
-    download_and_unpack ${pkg_pcre} ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/${pkg_pcre}
+    download_and_unpack ${pkg_pcre} http://downloads.sourceforge.net/project/pcre/pcre/${PCRE_VERSION}/${pkg_pcre}?&use_mirror=netcologne
     download_and_unpack ${pkg_zlib} http://zlib.net/${pkg_zlib}
     download_and_unpack ${pkg} http://nginx.org/download/${pkg}
     pushd nginx-${NGINX_VERSION}

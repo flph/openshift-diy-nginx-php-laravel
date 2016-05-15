@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function check_libtool() {
-    local libtool_bin=${ROOT_DIR}/libs/bin/libtool
+    local libtool_bin=${ROOT_DIR}libs/bin/libtool
     if [[ ! -e  ${libtool_bin} ]]; then
         echo "Libtool not installed."
         install_libtool
@@ -29,8 +29,8 @@ function install_libtool() {
     pushd libtool-${LIBTOOL_VERSION}
 
     echo "Configuring Libtool."
-    mkdir -p ${ROOT_DIR}/libs/lib64/
-    ./configure --prefix=${ROOT_DIR}/libs/ --libdir=${ROOT_DIR}/libs/lib64
+    mkdir -p ${ROOT_DIR}libs/lib64/
+    ./configure --prefix=${ROOT_DIR}libs/ --libdir=${ROOT_DIR}libs/lib64
     echo "Compiling Libtool."
     make install
 
@@ -51,14 +51,14 @@ function install_libmcrypt() {
     pushd libmcrypt-${LIBMCRYPT_VERSION}
 
     echo "Configuring LibMCrypt."
-    mkdir -p ${ROOT_DIR}/libs/lib64/
+    mkdir -p ${ROOT_DIR}libs/lib64/
     ./configure \
         --disable-posix-threads \
         --enable-dynamic-loading \
 		--disable-shared \
 		--with-included-algos=cbc,cfb,ctr,ecb,ncfb,nofb,ofb,stream,cast-128,gost,rijndael-128,twofish,arcfour,cast-256,loki97,rijndael-192,saferplus,wake,blowfish-compat,des,rijndael-256,serpent,xtea,blowfish,enigma,rc2,tripledes \
-        --prefix=${ROOT_DIR}/libs/ \
-        --libdir=${ROOT_DIR}/libs/lib64/
+        --prefix=${ROOT_DIR}libs/ \
+        --libdir=${ROOT_DIR}libs/lib64/
     echo "Compiling LibMCrypt."
     make install
 
@@ -70,7 +70,7 @@ function install_libmcrypt() {
 function check_libmcrypt() {
     check_libtool
 
-    local mcrypt_bin=${ROOT_DIR}/libs/bin/libmcrypt-config
+    local mcrypt_bin=${ROOT_DIR}libs/bin/libmcrypt-config
     if [[ ! -e  ${mcrypt_bin} ]]; then
         echo "LibMCrypt not installed."
         install_libmcrypt
@@ -99,7 +99,7 @@ function install_icu() {
     echo "Configuring ICU."
     chmod +x runConfigureICU configure install-sh
     ./configure \
-        --prefix=${ROOT_DIR}/libs/
+        --prefix=${ROOT_DIR}libs/
 
     echo "Compiling ICU."
     make install
@@ -111,7 +111,7 @@ function install_icu() {
 }
 
 function check_icu() {
-    local icu_bin=${ROOT_DIR}/libs/bin/icu-config
+    local icu_bin=${ROOT_DIR}libs/bin/icu-config
     if [[ ! -e  ${icu_bin} ]]; then
         echo "ICU not installed."
         install_icu
@@ -138,7 +138,7 @@ function install_bison() {
     pushd bison-${BISON_VERSION}
 
     echo "Configuring Bison."
-    ./configure --prefix=${ROOT_DIR}/libs/ --libdir=${ROOT_DIR}/libs/lib64
+    ./configure --prefix=${ROOT_DIR}libs/ --libdir=${ROOT_DIR}libs/lib64
 
     echo "Compiling Bison."
     make install
@@ -149,7 +149,7 @@ function install_bison() {
 }
 
 function check_bison() {
-    local bin=${ROOT_DIR}/libs/bin/bison
+    local bin=${ROOT_DIR}libs/bin/bison
     if [[ ! -e  ${bin} ]]; then
         echo "Bison not installed."
         install_bison
@@ -174,12 +174,12 @@ function install_re2c() {
     pushd ${BUILD_DIR}
 
     # Get archive
-    download_and_unpack ${pkg} "http://sourceforge.net/projects/re2c/files/re2c/${RE2C_VERSION}/${pkg}/download?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fre2c%2F&ts=${ts}&use_mirror=freefr"
+    download_and_unpack ${pkg} "http://downloads.sourceforge.net/project/re2c/${RE2C_VERSION}/${pkg}?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fre2c%2Ffiles%2F0.16%2F&ts=1463279937&use_mirror=kent&ts=${ts}"
     pushd re2c-${RE2C_VERSION}
 
     echo "Configuring Re2c."
-    mkdir -p ${ROOT_DIR}/libs/lib64/
-    ./configure --prefix=${ROOT_DIR}/libs/ --libdir=${ROOT_DIR}/libs/lib64
+    mkdir -p ${ROOT_DIR}libs/lib64/
+    ./configure --prefix=${ROOT_DIR}libs/ --libdir=${ROOT_DIR}libs/lib64
 
     echo "Compiling Re2c."
     make install

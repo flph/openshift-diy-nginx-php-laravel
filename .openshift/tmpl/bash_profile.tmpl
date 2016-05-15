@@ -1,13 +1,13 @@
 # Export
-export OPENSHIFT_RUNTIME_DIR=${OPENSHIFT_DIY_DIR}/runtime/
+export OPENSHIFT_RUNTIME_DIR=${OPENSHIFT_DIY_DIR}runtime/
 
 # We can't use PATH because of OpenShift
-alias npm='${OPENSHIFT_RUNTIME_DIR}/bin/npm'
-alias php='${OPENSHIFT_RUNTIME_DIR}/php5/bin/php'
-alias php-fpm='${OPENSHIFT_RUNTIME_DIR}/php5/sbin/php-fpm'
-alias composer='${OPENSHIFT_DATA_DIR}/composer/bin/composer.phar'
+alias npm='${OPENSHIFT_RUNTIME_DIR}bin/npm'
+alias php='${OPENSHIFT_RUNTIME_DIR}php5/bin/php'
+alias php-fpm='${OPENSHIFT_RUNTIME_DIR}php5/sbin/php-fpm'
+alias composer='${OPENSHIFT_DATA_DIR}composer/bin/composer.phar'
 
 # I can't override PHPRC here so notify the user
 if [ -d ${OPENSHIFT_ROCKMONGO_DIR} ];then
-    echo 'You are using RockMongo, please run export "PHPRC=${OPENSHIFT_RUNTIME_DIR}/etc/php5/"'
+    echo 'You are using RockMongo, please run export "PHPRC=${OPENSHIFT_RUNTIME_DIR}etc/php5/"'
 fi
